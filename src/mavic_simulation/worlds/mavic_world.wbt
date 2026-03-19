@@ -14,6 +14,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Pine.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/trees/protos/Forest.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+EXTERNPROTO "/usr/local/webots/projects/humans/pedestrian/protos/Pedestrian.proto"
 
 WorldInfo {
   info [
@@ -146,120 +147,11 @@ Forest {
   maxRadius 6
   minRadius 3
 }
-Solid {
-  translation 2 0 0
-  rotation 0 0 1 0
-  name "person"
-  children [
-    Transform {
-      translation 0 0 1.55
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.9 0.72 0.52
-            roughness 0.8
-          }
-          geometry Sphere {
-            radius 0.14
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0 1.67
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.1 0.06 0.02
-            roughness 1.0
-          }
-          geometry Cylinder {
-            height 0.06
-            radius 0.14
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0 1.0
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.15 0.25 0.75
-            roughness 0.9
-          }
-          geometry Box {
-            size 0.38 0.22 0.55
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0.27 0 1.0
-      rotation 0 1 0 0.2
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.15 0.25 0.75
-            roughness 0.9
-          }
-          geometry Box {
-            size 0.11 0.11 0.52
-          }
-        }
-      ]
-    }
-    Transform {
-      translation -0.27 0 1.0
-      rotation 0 1 0 -0.2
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.15 0.25 0.75
-            roughness 0.9
-          }
-          geometry Box {
-            size 0.11 0.11 0.52
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0.1 0 0.38
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.08 0.05 0.02
-            roughness 1.0
-          }
-          geometry Box {
-            size 0.16 0.18 0.65
-          }
-        }
-      ]
-    }
-    Transform {
-      translation -0.1 0 0.38
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.08 0.05 0.02
-            roughness 1.0
-          }
-          geometry Box {
-            size 0.16 0.18 0.65
-          }
-        }
-      ]
-    }
+Pedestrian {
+  translation 0 0 1.27
+  name "pedestrian"
+  controllerArgs [
+    "--trajectory=0 0, 3 0, 3 3, 0 3, 0 0"
+    "--speed=1.4"
   ]
-  boundingObject Transform {
-    translation 0 0 0.85
-    children [
-      Cylinder {
-        height 1.7
-        radius 0.22
-      }
-    ]
-  }
 }
